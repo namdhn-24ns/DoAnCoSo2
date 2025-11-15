@@ -14,18 +14,18 @@ const HomeLandingContainer = (props) => {
         <div>
           <p className="home-title">
             <div className="home-titlePlusPng">
-            <p>Your Pets </p><img src={homepageDog} alt="Dog sitting"/>
+            <p>Hãy chung tay</p><img src={homepageDog} alt="Dog sitting"/>
             </div>
-            Are Our
+            Trao cho các em
             <br />
-            Priority
+            Cuộc đời mới
           </p>
           <p className="home-second-para">
             {props.description}
           </p>
         </div>
         <div className="adopt-btn">
-          <Link to='./pets'><button className="Home-button" onClick={scrollToTop}><p>Adopt a Pet</p><img src={footPrint} alt="footprint" /></button></Link>
+          <Link to='./pets'><button className="Home-button" onClick={scrollToTop}><p>Nhận nuôi</p><img src={footPrint} alt="footprint" /></button></Link>
         </div>
       </div>
       <div className="homeContainer-right">

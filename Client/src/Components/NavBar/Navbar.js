@@ -14,22 +14,22 @@ const Navbar = (props) => {
       <div>
         <ul className="navbar-links">
           <li>
-            <Link to="/">Home</Link>
+            <Link to="/">Trang chủ</Link>
           </li>
           <li>
-            <Link to="/services">Services</Link>
+            <Link to="/services">Dịch vụ</Link>
           </li>
           <li>
-            <Link to="/pets">Pets</Link>
+            <Link to="/pets">Thú cưng</Link>
           </li>
           <li>
-            <Link to="/contact">Contact Us</Link>
+            <Link to="/contact">Liên hệ</Link>
           </li>
         </ul>
       </div>
       <div>
         <Link to="/services">
-          <button className="Navbar-button">Give a Pet</button>
+          <button className="Navbar-button">Gửi thú cưng</button>
         </Link>
       </div>
     </div>

@@ -1,7 +1,7 @@
 const express = require('express')
 
 const getCredentials = (req, res) => {
-    const Credentials = { "username": "admin", "password": "123" }
+    const Credentials = { "username": "dacs2", "password": "1" }
     res.status(200).json(Credentials)
 }
 

@@ -4,11 +4,11 @@ import Card from "./Card";
 const PlanningToAdoptAPet = () => {
   return (
     <div className='planning-container'>
-        <h1>Planning to Adopt a Pet?</h1>
+        <h1>Bạn đang có ý định nhân nuôi thú cưng?</h1>
         <div className='boxes-container'>
-            <Card title="The Joy of Pet Adoption" description="Bringing a pet into your life can be an incredibly rewarding experience, not just for you but for the furry friend you welcome into your home. There's a special kind of magic that comes with adopting any companion animal."/>
-            <Card title="A Guide to Pet Adoption" description="Are you considering adding a new pet to your family? Pet adoption is a wonderful option to consider. The journey of finding the ideal companion involves careful thought, research, and planning, but the rewards are immeasurable. "/>
-            <Card title="Healing Power of Animal" description="Animals have an extraordinary ability to touch our lives in profound ways, offering not only companionship but also a therapeutic bond that can positively impact our physical, mental, and emotional well-being"/>
+            <Card title="Niềm Vui Khi Nhận Nuôi Thú Cưng" description="Nhận nuôi một bé thú cưng mang đến nhiều cảm xúc tích cực và sự gắn kết đặc biệt. Một mái ấm mới không chỉ thay đổi cuộc sống của thú cưng, mà còn giúp mỗi ngày của bạn trở nên ấm áp và ý nghĩa hơn."/>
+            <Card title="Hướng Dẫn Nhận Nuôi" description="Nếu bạn đang cân nhắc có một bạn đồng hành mới, nhận nuôi là lựa chọn đáng để thử. Chỉ cần một chút chuẩn bị và tìm hiểu, bạn sẽ tìm được người bạn phù hợp để đồng hành thật lâu dài."/>
+            <Card title="Chữa Lành Từ Động Vật" description="Động vật có thể xoa dịu căng thẳng và mang lại cảm giác an yên. Sự hiện diện của chúng giúp cải thiện tinh thần, mang đến sự thoải mái và cân bằng cho cuộc sống hàng ngày."/>
         </div>
     </div>
   )

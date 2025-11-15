@@ -14,9 +14,9 @@ const CardBelowHome = () => {
   return (
     <div className='dark-grey-container'>
       <div className='left-pic'><img src={HomeDarkCardLeftPic} alt="Dog with toy"/></div>
-      <div className='left-para'><p><p className='adopted-pets-num'>{adoptedPets}</p> Furry Friends<br/>Living Their Best Lives</p></div>
+      <div className='left-para'><p><p className='adopted-pets-num'>{adoptedPets}</p>Thú cưng đã tìm được mái ấm</p></div>
       <div className='right-pic'><img src={HomeDarkCardRightPic} alt="Dog pic" /></div>
-      <div className='right-para'><p className='we-do'>WHAT WE DO?</p>With a focus on matching the right pet with the right family, PawFinds makes it easy to adopt love and foster happiness.</div>
+      <div className='right-para'><p className='we-do'>Hành trình được yêu thương</p>Nhiều tình nguyện viên đang hoạt động</div>
     </div>
   )
 }
