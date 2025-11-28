@@ -1011,14 +1011,14 @@ body {
     flex-direction: row;
     margin: auto;
     border: 1px solid var(--orange);
-    width: 310px;
+    width: 350px;
     height: 120px;
     margin-bottom: 17px;
 }
 
 .pet-pic img {
     width: 150px;
-    height: 120px;
+    height: 118px;
     object-fit: cover;
 }
 
