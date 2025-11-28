@@ -28,14 +28,14 @@ const PostingPets = () => {
   return (
     <div className='pet-container'>
       {loading ? (
-        <p>Loading...</p>
+        <p>...</p>
       ) : (
         requests.length > 0 ? (
           requests.map((request, index) => (
-            <PetCards key={request._id} pet={request} updateCards={fetchRequests} deleteBtnText={"Reject"} approveBtn={true}/>
+            <PetCards key={request._id} pet={request} updateCards={fetchRequests} deleteBtnText={"Từ chối"} approveBtn={true}/>
           ))
         ) : (
-          <p>No requests available</p>
+          <p>Hiện không có yêu cầu nhận nuôi.</p>
         )
       )}
     </div>

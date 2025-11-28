@@ -27,7 +27,7 @@ const AdoptedHistory = () => {
   return (
     <div className='pet-container'>
       {loading ? (
-        <p>Loading...</p>
+        <p>...</p>
       ) : 
       requests.length > 0 ? (
         requests.map((request) => (
@@ -35,12 +35,12 @@ const AdoptedHistory = () => {
             key={request._id}
             pet={request}
             updateCards={fetchAdoptedPets}
-            deleteBtnText="Delete History"
+            deleteBtnText="Xóa"
             approveBtn={false}
           />
         ))
       ) : (
-        <p>No Adopted Pets available</p>
+        <p>Lịch sử đang trống.</p>
       )}
     </div>
   );

@@ -39,23 +39,23 @@ const Pets = () => {
           value={filter}
           onChange={(event) => setFilter(event.target.value)}
         >
-          <option value="all">All Pets</option>
-          <option value="Dog">Dogs</option>
-          <option value="Cat">Cats</option>
-          <option value="Rabbit">Rabbits</option>
-          <option value="Bird">Birds</option>
-          <option value="Fish">Fishs</option>
-          <option value="Other">Other</option>
+          <option value="Tất cả">Tất cả</option>
+          <option value="Chó">Chó</option>
+          <option value="Mèo">Mèo</option>
+          <option value="Thỏ">Thỏ</option>
+          <option value="Chim">chim</option>
+          <option value="Cá">Cá</option>
+          <option value="Khác">Khác</option>
         </select>
       </div>
       <div className="pet-container">
         {loading ?
-          <p>Loading</p> : ((filteredPets.length > 0 ) ? (
+          <p>...</p> : ((filteredPets.length > 0 ) ? (
             filteredPets.map((petDetail, index) => (
               <PetsViewer pet={petDetail} key={index} />
             ))
           ) : (
-            <p className="oops-msg">Oops!... No pets available</p>
+            <p className="oops-msg">Hiện không có thú cưng khả dụng.</p>
           )
           )
         }

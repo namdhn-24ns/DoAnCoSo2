@@ -113,12 +113,12 @@ const PostPetSection = () => {
 
   return (
     <section className="post-pet-section">
-      <h2>Post a Pet for Adoption</h2>
+      <h2>Bạn có thú cưng muốn gửi đi</h2>
       <img src={postPet} alt="Pet Looking for a Home" />
 
       <form onSubmit={handleSubmit} encType="multipart/form-data">
         <div className="input-box">
-          <label>Name:</label>
+          <label>Tên:</label>
           <input
             type="text"
             value={name}
@@ -127,7 +127,7 @@ const PostPetSection = () => {
         </div>
 
         <div className="input-box">
-          <label>Pet Age:</label>
+          <label>Tuổi:</label>
           <input
             type="text"
             value={age}
@@ -136,10 +136,10 @@ const PostPetSection = () => {
         </div>
 
         <div className="input-box">
-          <label>Picture:</label>
+          <label>Ảnh:</label>
           <label className="file-input-label">
             <span className="file-input-text">
-              {fileName || "Choose a Picture"}
+              {fileName || "Chọn ảnh"}
             </span>
             <input
               className="file-input"
@@ -151,7 +151,7 @@ const PostPetSection = () => {
         </div>
 
         <div className="input-box">
-          <label>Location:</label>
+          <label>Địa chỉ:</label>
           <input
             type="text"
             value={area}
@@ -160,23 +160,23 @@ const PostPetSection = () => {
         </div>
 
         <div className="filter-selection-service">
-          <label>Type:</label>
+          <label>Loại thú cưng:</label>
           <select
             value={type}
             onChange={(event) => setType(event.target.value)}
           >
-            <option value="None">None</option>
-            <option value="Dog">Dog</option>
-            <option value="Cat">Cat</option>
-            <option value="Rabbit">Rabbit</option>
-            <option value="Bird">Bird</option>
-            <option value="Fish">Fish</option>
-            <option value="Other">Other</option>
+            <option value="Khác">Khác</option>
+            <option value="Chó">Chó</option>
+            <option value="Mèo">Mèo</option>
+            <option value="Thỏ">Thỏ</option>
+            <option value="Chim">Chim</option>
+            <option value="Cá">Cá</option>
+            
           </select>
         </div>
 
         <div className="input-box">
-          <h3>Justification for giving a pet</h3>
+          <h3>Lí do gửi đi thú cưng:</h3>
           <textarea
             rows="4"
             value={justification}
@@ -184,7 +184,7 @@ const PostPetSection = () => {
           ></textarea>
         </div>
 
-        <h3>Contact Information</h3>
+        <h3>Thông tin liên lạc</h3>
 
         <div className="input-box">
           <label>Email:</label>
@@ -196,7 +196,7 @@ const PostPetSection = () => {
         </div>
 
         <div className="input-box">
-          <label>Ph.No:</label>
+          <label>SĐT:</label>
           <input
             type="tel"
             value={phone}
@@ -205,23 +205,23 @@ const PostPetSection = () => {
         </div>
 
         {emailError && (
-          <p className="error-message">Please provide a valid email address.</p>
+          <p className="error-message">Hãy cung cấp email hợp lệ.</p>
         )}
         {formError && (
-          <p className="error-message">Please fill out all fields correctly.</p>
+          <p className="error-message">Làm ơn không để trống bất kì mục nào.</p>
         )}
 
         <button type="submit" className="cta-button" disabled={isSubmitting}>
-          {isSubmitting ? "Submitting..." : "Submit Your Pet"}
+          {isSubmitting ? "Gửi..." : "Đã gửi"}
         </button>
 
         {showPopup && (
           <div className="popup">
             <div className="popup-content">
-              <h4>Application Submitted; we'll get in touch with you soon.</h4>
+              <h4>Đã gửi đơn; chúng tôi sẽ sớm liên lạc với bạn.</h4>
             </div>
             <button onClick={togglePopup} className="close-btn">
-              Close <i className="fa fa-times"></i>
+              Đóng <i className="fa fa-times"></i>
             </button>
           </div>
         )}

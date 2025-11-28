@@ -9,36 +9,34 @@ const AdoptSection = () => {
 
   return (
     <section className="adopt-section">
-      <h2>Adopt a Pet</h2>
+      <h2>Nhận nuôi</h2>
       <img src={adoptPet} alt="Happy Pet" />
 
       <p>
-        Welcome to our pet adoption program! Adopting a pet is a wonderful way
-        to bring joy and companionship into your life.
+        Chào mừng bạn đến với chương trình nhận nuôi thú cưng của chúng tôi! Nhận nuôi thú cưng là một cách tuyệt vời để mang lại niềm vui và tình bạn cho cuộc sống của bạn.
       </p>
 
-      <h3>Benefits of Pet Adoption</h3>
+      <h3>Lợi ích của việc nhận nuôi thú cưng</h3>
       <ul>
-        <li>Provide a loving home to a pet in need</li>
-        <li>Experience the unconditional love of a pet</li>
-        <li>Create lasting memories and cherished moments</li>
+        <li>Cung cấp một ngôi nhà yêu thương cho một con vật cưng đang cần giúp đỡ</li>
+        <li>Trải nghiệm tình yêu vô điều kiện của thú cưng</li>
+        <li>Tạo ra những kỷ niệm lâu dài và khoảnh khắc đáng trân trọng</li>
       </ul>
 
-      <h3>Adoption Process</h3>
+      <h3>Quy trình áp dụng</h3>
       <ol>
-        <li>Fill out an adoption application</li>
-        <li>Meet potential pets in person</li>
-        <li>Complete the necessary paperwork</li>
+        <li>Điền vào đơn xin nhận con nuôi</li>
+        <li>Gặp gỡ trực tiếp những thú cưng tiềm năng</li>
+        <li>Hoàn thành các thủ tục giấy tờ cần thiết</li>
       </ol>
 
-      <h3>Responsibilities</h3>
+      <h3>Trách nhiệm</h3>
       <p>
-        Adopting a pet comes with responsibilities, including feeding, grooming,
-        regular exercise, and providing medical care.
+        Việc nhận nuôi thú cưng đi kèm với nhiều trách nhiệm, bao gồm cho ăn, chải chuốt, tập thể dục thường xuyên và chăm sóc y tế.
       </p>
 
       <Link to="/pets">
-        <button className="cta-button" onClick={scrollToTop}>Find Your Perfect Pet</button>
+        <button className="cta-button" onClick={scrollToTop}>Tìm thú cưng hoàn hảo của bạn</button>
       </Link>
     </section>
   );

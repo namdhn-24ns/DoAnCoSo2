@@ -83,7 +83,7 @@ function AdoptForm(props) {
 
   return (
     <div className="custom-adopt-form-container">
-      <h2 className="custom-form-heading">Pet Adoption Application</h2>
+      <h2 className="custom-form-heading">Đơn nhận nuôi</h2>
       <div className="form-pet-container">
         <div className="pet-details">
           <div className="pet-pic">
@@ -92,13 +92,13 @@ function AdoptForm(props) {
           <div className="pet-info">
             <h2>{props.pet.name}</h2>
             <p>
-              <b>Type:</b> {props.pet.type}
+              <b>Loại thú cưng:</b> {props.pet.type}
             </p>
             <p>
-              <b>Age:</b> {props.pet.age}
+              <b>Tuổi:</b> {props.pet.age}
             </p>
             <p>
-              <b>Location:</b> {props.pet.location}
+              <b>Địa chỉ:</b> {props.pet.location}
             </p>
           </div>
         </div>
@@ -109,7 +109,7 @@ function AdoptForm(props) {
                 <label className="custom-label">Email:</label>
                 {emailError && (
                   <p>
-                    Please provide valid email address.
+                    Cung cấp email hợp lệ.
                   </p>
                 )}
               </div>
@@ -121,7 +121,7 @@ function AdoptForm(props) {
               />
             </div>
             <div className="custom-input-box">
-              <label className="custom-label">Phone No.</label>
+              <label className="custom-label">SĐT</label>
               <input
                 type="text"
                 value={phoneNo}
@@ -130,7 +130,7 @@ function AdoptForm(props) {
               />
             </div>
             <div className="custom-input-box">
-              <label className="custom-label">Pet Living Situation:</label>
+              <label className="custom-label">Bạn đã chuẩn bị những gì: </label>
               <input
                 type="text"
                 value={livingSituation}
@@ -139,7 +139,7 @@ function AdoptForm(props) {
               />
             </div>
             <div className="custom-input-box">
-              <label className="custom-label">Previous Pet Experience:</label>
+              <label className="custom-label">Kinh nghiệm nuôi thú cưng trước đây: </label>
               <input
                 type="text"
                 value={previousExperience}
@@ -148,7 +148,7 @@ function AdoptForm(props) {
               />
             </div>
             <div className="custom-input-box">
-              <label className="custom-label">Any Other Pets:</label>
+              <label className="custom-label">Hiện bạn có đang nuôi thú cưng nào không: </label>
               <input
                 type="text"
                 value={familyComposition}
@@ -157,20 +157,20 @@ function AdoptForm(props) {
               />
             </div>
             {formError && (
-              <p className="error-message">Please fill out all fields.</p>
+              <p className="error-message">Vui lòng không để trống.</p>
             )}
             <button disabled={isSubmitting} type="submit" className="custom-cta-button custom-m-b">
-              {isSubmitting ? 'Submitting' : 'Submit'}
+              {isSubmitting ? 'Đang gửi' : 'Gửi yêu cầu nhận'}
             </button>
             {ErrPopup && (
               <div className="popup">
                 <div className="popup-content">
                   <h4>
-                    Oops!... Connection Error.
+                    @@@
                   </h4>
                 </div>
                 <button onClick={(e) => (setErrPopup(!ErrPopup))} className="close-btn">
-                  Close <i className="fa fa-times"></i>
+                  Đóng <i className="fa fa-times"></i>
                 </button>
               </div>
             )}
@@ -178,14 +178,14 @@ function AdoptForm(props) {
               <div className="popup">
                 <div className="popup-content">
                   <h4>
-                    Adoption Form of {props.pet.name} is Submitted; we'll get in touch with you soon for further process.
+                    Đơn xin nhận "{props.pet.name}" đã được gửi. Chúng tôi sẽ liên lạc với bạn sớm nhất.
                   </h4>
                 </div>
                 <button onClick={(e) => {
                   setSuccPopup(!SuccPopup);
                   props.closeForm();
                 }} className="close-btn">
-                  Close <i className="fa fa-times"></i>
+                  Đóng <i className="fa fa-times"></i>
                 </button>
               </div>
             )}

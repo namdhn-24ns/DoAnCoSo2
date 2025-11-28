@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { formatDistanceToNow } from 'date-fns';
+import { vi } from 'date-fns/locale';
 
 const FormCard = (props) => {
   const [showErrorPopup, setShowErrorPopup] = useState(false);
@@ -11,7 +12,7 @@ const FormCard = (props) => {
 
   const formatTimeAgo = (updatedAt) => {
     const date = new Date(updatedAt);
-    return formatDistanceToNow(date, { addSuffix: true });
+    return formatDistanceToNow(date, { addSuffix: true, locale: vi });
   };
 
   const handleApprove = async () => {
@@ -50,13 +51,14 @@ const FormCard = (props) => {
         throw new Error('Failed to delete forms');
       }
     } catch (err) {
-    }finally{
+    }finally{;
       setIsApproving(false);
     }
   }
 
 
   const handleReject = async () => {
+    console.log(props);
     setIsDeleting(true)
     try {
       const response = await fetch(`http://localhost:4000/form/reject/${props.form._id}`, {
@@ -82,47 +84,40 @@ const FormCard = (props) => {
       <div className='pet-view-card'>
         <div className='form-card-details'>
           <p><b>Email: </b> {props.form.email}</p>
-          <p><b>Phone Number: </b> {props.form.phoneNo}</p>
-          <p><b>Living Situation: </b> {props.form.livingSituation}</p>
-          <p><b>Previous Pet Experience: </b> {props.form.previousExperience}</p>
-          <p><b>Having Other Pets? </b> {props.form.familyComposition}</p>
+          <p><b>SĐT: </b> {props.form.phoneNo}</p>
+          <p><b>Bạn đã chuẩn bị những gì: </b> {props.form.livingSituation}</p>
+          <p><b>Kinh nghiệm nuôi thú cưng: </b> {props.form.previousExperience}</p>
+          <p><b>Bạn có nuôi thú cưng nào khác? </b> {props.form.familyComposition}</p>
           <p>{formatTimeAgo(props.form.updatedAt)}</p>
         </div>
         <div className='app-rej-btn'>
-          <button onClick={handleReject} disabled={isDeleting || isApproving}>{isDeleting ? (<p>Deleting</p>) : (props.deleteBtnText)}</button>
-          <button onClick={() => setShowDetailsPopup(true)}>View Full</button>
+          <button onClick={handleReject} disabled={isDeleting || isApproving}>{isDeleting ? (<p>Đang từ chối</p>) : 'Từ chối'}</button>
+          <button onClick={() => setShowDetailsPopup(true)}>Xem chi tiết</button>
           {props.approveBtn ?
-            <button onClick={handleApprove} disabled={isDeleting || isApproving} >{isApproving ? (<p>Approving</p>) : 'Approve'}</button>
+            <button onClick={handleApprove} disabled={isDeleting || isApproving} >{isApproving ? (<p>Đang duyệt</p>) : 'Phê duyệt'}</button>
             : ''
           }
         </div>
         {showErrorPopup && (
           <div className='popup'>
             <div className='popup-content'>
-              <p>Oops!... Connection Error</p>
+              <p>...</p>
             </div>
             <button onClick={() => setShowErrorPopup(!showErrorPopup)} className='close-btn'>
-              Close <i className="fa fa-times"></i>
+              Đóng <i className="fa fa-times"></i>
             </button>
           </div>
         )}
         {showApproved && (
           <div className='popup'>
             <div className='popup-content'>
-              <p>Pet is Adopted Successfully...</p>
-              <p>
-                Please contact the Adopter at{' '}
-                <a href={`mailto:${props.form.email}`}>{props.form.email}</a>{' '}
-                or{' '}
-                <a href={`tel:${props.form.phoneNo}`}>{props.form.phoneNo}</a>{' '}
-                to arrange the transfer of the pet from our adoption center to their house.
-              </p>
+              <p>Đã nhận nuôi thành công</p>
             </div>
             <button onClick={() => {
               props.updateCards()
               setShowApproved(!showApproved)
             }} className='close-btn'>
-              Close <i className="fa fa-times"></i>
+              Đóng <i className="fa fa-times"></i>
             </button>
           </div>
         )}
@@ -130,13 +125,13 @@ const FormCard = (props) => {
         {showDeletedSuccess && (
           <div className='popup'>
             <div className='popup-content'>
-              <p>Request Rejected Successfully...</p>
+              <p>Đã từ chối yêu cầu.</p>
             </div>
             <button onClick={() => {
               setShowDeletedSuccess(!showDeletedSuccess)
               props.updateCards()
             }} className='close-btn'>
-              Close <i className="fa fa-times"></i>
+              Đóng <i className="fa fa-times"></i>
             </button>
           </div>
         )}
@@ -146,14 +141,14 @@ const FormCard = (props) => {
             <div className='popup-content'>
               <h2>{props.pet.name}</h2>
               <p><b>Email: </b> {props.form.email}</p>
-              <p><b>Phone Number: </b> {props.form.phoneNo}</p>
-              <p><b>Living Situation: </b> {props.form.livingSituation}</p>
-              <p><b>Previous Pet Experience: </b> {props.form.previousExperience}</p>
-              <p><b>Having Other Pets? </b> {props.form.familyComposition}</p>
+              <p><b>SĐT: </b> {props.form.phoneNo}</p>
+              <p><b>Trạng thái hiện tại của thú cưng: </b> {props.form.livingSituation}</p>
+              <p><b>Kinh nghiệm nuôi thú cưng: </b> {props.form.previousExperience}</p>
+              <p><b>Bạn có nuôi thú cưng nào khác? </b> {props.form.familyComposition}</p>
               <p>{formatTimeAgo(props.form.updatedAt)}</p>
             </div>
             <button onClick={() => setShowDetailsPopup(false)} className='close-btn'>
-              Close <i className="fa fa-times"></i>
+              Đóng <i className="fa fa-times"></i>
             </button>
           </div>
         )}

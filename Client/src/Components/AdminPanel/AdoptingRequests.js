@@ -68,7 +68,7 @@ const AdoptingRequests = () => {
     <div>
       <div className="dropdown-container" style={{ textAlign: 'right', marginBottom: '20px' }}>
         <select className='req-filter-selection' onChange={handlePetChange} value={selectedPetId}>
-          <option value="">All Requets</option>
+          <option value="">Tất cả yêu cầu</option>
           {petsWithRequests.map((pet) => (
             <option key={pet._id} value={pet._id}>
               {pet.name}
@@ -77,7 +77,7 @@ const AdoptingRequests = () => {
         </select>
       </div>
       {loading ? (
-        <p>Loading...</p>
+        <p style={{ textAlign: 'center'}}>...</p>
       ) : filteredPets.length > 0 ? (
         filteredPets.map((pet) => {
           const petForms = forms.filter((form) => form.petId === pet._id);
@@ -104,7 +104,7 @@ const AdoptingRequests = () => {
           );
         })
       ) : (
-        <p>No adoption requests available for any pet.</p>
+        <p style={{ textAlign: 'center'}}>Hiện chưa có yêu cầu nhận nuôi.</p>
       )}
 
       {petDetailsPopup && selectedPet && (
@@ -116,16 +116,16 @@ const AdoptingRequests = () => {
               </div>
               <div className='pet-card-details'>
                 <h2>{selectedPet.name}</h2>
-                <p><b>Type:</b> {selectedPet.type}</p>
-                <p><b>Age:</b> {selectedPet.age}</p>
-                <p><b>Location:</b> {selectedPet.area}</p>
-                <p><b>Owner Email:</b> {selectedPet.email}</p>
-                <p><b>Owner Phone:</b> {selectedPet.phone}</p>
-                <p><b>Justification:</b> {selectedPet.justification}</p>
+                <p><b>Loại thú cưng:</b> {selectedPet.type}</p>
+                <p><b>Tuổi:</b> {selectedPet.age}</p>
+                <p><b>Địa chỉ:</b> {selectedPet.area}</p>
+                <p><b>Mail người gửi:</b> {selectedPet.email}</p>
+                <p><b>SĐT người gửi:</b> {selectedPet.phone}</p>
+                <p><b>Lí do:</b> {selectedPet.justification}</p>
               </div>
             </div>
             <button onClick={closePetDetailsPopup} className='close-btn'>
-              Close <i className="fa fa-times"></i>
+              Đóng <i className="fa fa-times"></i>
             </button>
           </div>
         </div>

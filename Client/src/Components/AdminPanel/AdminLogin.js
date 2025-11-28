@@ -43,23 +43,23 @@ const AdminLogin = () => {
       ) : (
         <div className="login-body">
           <div className="login-container">
-            <h2>Admin Login</h2>
+            <h2>Đăng Nhập</h2>
             <input
               type="text"
-              placeholder="Username"
+              placeholder="Tên Đăng Nhập"
               value={username}
               onChange={(e) => setUsername(e.target.value)}
               />
             <input
               type="password"
-              placeholder="Password"
+              placeholder="Mật Khẩu"
               value={password}
               onChange={(e) => setPassword(e.target.value)}
               />
               {showErrorMessage && (
-                <p className="error-message">Incorrect username or password</p>
+                <p className="error-message">Tên đăng nhập hoặc mật khẩu không hợp lệ.</p>
               )}
-            <button className="float-right" onClick={handleLogin}>Login</button>
+            <button className="float-right" onClick={handleLogin}>Đăng nhập</button>
           </div>
         </div>
       )}

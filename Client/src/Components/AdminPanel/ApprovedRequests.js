@@ -28,14 +28,19 @@ const ApprovedRequests = () => {
   return (
     <div className='pet-container'>
       {loading ? (
-        <p>Loading...</p>
+        <p>...</p>
       ) : (
         requests.length > 0 ? (
           requests.map((request, index) => (
-            <PetCards key={request._id} pet={request} updateCards={fetchRequests} deleteBtnText={"Delete Post"} approveBtn={false}/>
+            <PetCards 
+              key={request._id} 
+              pet={request} 
+              updateCards={fetchRequests} 
+              deleteBtnText={"Xóa"} 
+              approveBtn={false}/>
           ))
         ) : (
-          <p>No Approved Pets available</p>
+          <p>Không có thú cưng hiển thị.</p>
         )
       )}
     </div>

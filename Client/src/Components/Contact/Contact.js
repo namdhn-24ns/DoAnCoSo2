@@ -1,5 +1,4 @@
 import React from "react";
-import developerPng from "./images/developer-png.png";
 
 const Contact = () => {
   return (

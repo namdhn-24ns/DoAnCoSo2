@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { formatDistanceToNow } from 'date-fns';
+import { vi } from 'date-fns/locale';
 
 const PetCards = (props) => {
   const [showJustificationPopup, setShowJustificationPopup] = useState(false);
@@ -20,7 +21,7 @@ const PetCards = (props) => {
 
   const formatTimeAgo = (updatedAt) => {
     const date = new Date(updatedAt);
-    return formatDistanceToNow(date, { addSuffix: true });
+    return formatDistanceToNow(date, { addSuffix: true, locale: vi });
   };
 
   const handleApprove = async () => {
@@ -91,18 +92,18 @@ const PetCards = (props) => {
         </div>
         <div className='pet-card-details'>
           <h2>{props.pet.name}</h2>
-          <p><b>Type:</b> {props.pet.type}</p>
-          <p><b>Age:</b> {props.pet.age}</p>
-          <p><b>Location:</b> {props.pet.area}</p>
-          <p><b>Owner Email:</b> {props.pet.email}</p>
-          <p><b>Owner Phone:</b> {props.pet.phone}</p>
+          <p><b>Loại thú cưng:</b> {props.pet.type}</p>
+          <p><b>Tuổi:</b> {props.pet.age}</p>
+          <p><b>Địa chỉ:</b> {props.pet.area}</p>
+          <p><b>Email người gửi:</b> {props.pet.email}</p>
+          <p><b>SĐT người gửi:</b> {props.pet.phone}</p>
           <p>
-            <b>Justification:</b>
+            <b>Lí do:</b>
             <span>
               {truncateText(props.pet.justification, maxLength)}
               {props.pet.justification.length > maxLength && (
                 <span onClick={() => setShowJustificationPopup(!showJustificationPopup)} className='read-more-btn'>
-                  Read More
+                  Xem thêm
                 </span>
               )}
             </span>
@@ -110,50 +111,43 @@ const PetCards = (props) => {
           <p>{formatTimeAgo(props.pet.updatedAt)}</p>
         </div>
         <div className='app-rej-btn'>
-          <button onClick={deleteFormsAdoptedPet} disabled={isDeleting || isApproving}>{isDeleting ? (<p>Deleting</p>) : (props.deleteBtnText)}</button>
+          <button onClick={deleteFormsAdoptedPet} disabled={isDeleting || isApproving}>{isDeleting ? (<p>Đang từ chối</p>) : (props.deleteBtnText)}</button>
           {props.approveBtn ?
-            <button disabled={isDeleting || isApproving} onClick={handleApprove}>{isApproving ? (<p>Approving</p>) : 'Approve'}</button>
+            <button disabled={isDeleting || isApproving} onClick={handleApprove}>{isApproving ? (<p>Chấp nhận</p>) : 'Phê Duyệt'}</button>
             : ''
           }
         </div>
         {showJustificationPopup && (
           <div className='popup'>
             <div className='popup-content'>
-              <h4>Justification:</h4>
+              <h4>Lí do:</h4>
               <p>{props.pet.justification}</p>
             </div>
             <button onClick={() => setShowJustificationPopup(!showJustificationPopup)} className='close-btn'>
-              Close <i className="fa fa-times"></i>
+              Đóng <i className="fa fa-times"></i>
             </button>
           </div>
         )}
         {showErrorPopup && (
           <div className='popup'>
             <div className='popup-content'>
-              <p>Oops!... Connection Error</p>
+              <p>Thành công.</p>
             </div>
             <button onClick={() => setShowErrorPopup(!showErrorPopup)} className='close-btn'>
-              Close <i className="fa fa-times"></i>
+              Đóng <i className="fa fa-times"></i>
             </button>
           </div>
         )}
         {showApproved && (
           <div className='popup'>
             <div className='popup-content'>
-              <p>Approval Successful...</p>
-              <p>
-                Please contact the customer at{' '}
-                <a href={`mailto:${props.pet.email}`}>{props.pet.email}</a>{' '}
-                or{' '}
-                <a href={`tel:${props.pet.phone}`}>{props.pet.phone}</a>{' '}
-                to arrange the transfer of the pet from the owner's home to our adoption center.
-              </p>
+              <p>Đã phê duyệt</p>
             </div>
             <button onClick={() => {
               setShowApproved(!showApproved)
               props.updateCards()
             }} className='close-btn'>
-              Close <i className="fa fa-times"></i>
+              Đóng <i className="fa fa-times"></i>
             </button>
           </div>
         )}
@@ -161,13 +155,13 @@ const PetCards = (props) => {
         {showDeletedSuccess && (
           <div className='popup'>
             <div className='popup-content'>
-              <p>Deleted Successfully from Database...</p>
+              <p>Đã xóa.</p>
             </div>
             <button onClick={() => {
               setshowDeletedSuccess(!showDeletedSuccess)
               props.updateCards()
             }} className='close-btn'>
-              Close <i className="fa fa-times"></i>
+              Đóng <i className="fa fa-times"></i>
             </button>
           </div>
         )}

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import AdoptForm from '../AdoptForm/AdoptForm';
 import { formatDistanceToNow } from 'date-fns';
+import { vi } from 'date-fns/locale';
 
 const PetsViewer = (props) => {
   const [showPopup, setShowPopup] = useState(false);
@@ -11,7 +12,7 @@ const PetsViewer = (props) => {
 
   const formatTimeAgo = (updatedAt) => {
     const date = new Date(updatedAt);
-    return formatDistanceToNow(date, { addSuffix: true });
+    return formatDistanceToNow(date, { addSuffix: true, locale: vi });
   };
 
   return (
@@ -21,13 +22,13 @@ const PetsViewer = (props) => {
       </div>
       <div className='pet-card-details'>
         <h2>{props.pet.name}</h2>
-        <p><b>Type:</b> {props.pet.type}</p>
-        <p><b>Age:</b> {props.pet.age}</p>
-        <p><b>Location:</b> {props.pet.area}</p>
+        <p><b>Loại thú cưng:</b> {props.pet.type}</p>
+        <p><b>Tuổi:</b> {props.pet.age}</p>
+        <p><b>Địa chỉ:</b> {props.pet.area}</p>
         <p>{formatTimeAgo(props.pet.updatedAt)}</p>
       </div>
       <div className='show-interest-btn'>
-        <button onClick={togglePopup}>Show Interest <i className="fa fa-paw"></i></button>
+        <button onClick={togglePopup}>Chọn bé<i className="fa fa-paw"></i></button>
       </div>
       {showPopup && (
         <div className='popup'>
@@ -35,7 +36,7 @@ const PetsViewer = (props) => {
             <AdoptForm closeForm={togglePopup} pet={props.pet}/>
           </div>
           <button onClick={togglePopup} className='close-btn'>
-            Close <i className="fa fa-times"></i>
+            Đóng <i className="fa fa-times"></i>
           </button>
         </div>
       )}
